@@ -1,0 +1,22 @@
+<div class="form_container">
+    <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+        <div class="group">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" [(ngModel)]="form.email" #email="ngModel" required>
+            <div class="form_error" *ngIf="email.errors && f.submitted">
+                <p>Email is required !</p>
+            </div>
+        </div>
+        <div class="group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" [(ngModel)]="form.password" #password="ngModel" required>
+            <div class="form_error" *ngIf="password.errors && f.submitted">
+                <p>Password is required !</p>
+            </div>
+        </div>
+        <div class="group">
+            <button>Login</button>
+        </div>
+    </form>
+    <a href="/auth/register">Register ?</a>
+</div>

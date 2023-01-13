@@ -1,0 +1,18 @@
+<div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Role</th>
+                    <th>Ajouter</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList">
+                    <td>{{user.name}}</td>
+                    <td>{{user.role}}</td>
+                    <td><button (click)="onClick()" class="add">+</button></td>
+                </tr>
+            </tbody>
+        </table>
+</div>
