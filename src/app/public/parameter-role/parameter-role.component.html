@@ -1,8 +1,12 @@
-<!--<div class="form_container">
+<div class="form_container">
     <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+        <!--<input type="text" value={{self.name}}>
+        <input type="text" value={{self.email}}>
+        <input type="text" value={{self.password}}>
+        <input type="text" value={{self.contact}}>-->
         <div class="group">
             <label for="role">Role</label>
-            <select name="role" id="role" [(ngModel)]="form.role" #role="ngModel" required>
+            <select name="role" id="role" [(ngModel)]="self.role" #role="ngModel" required>
                 <option value="Guerrier">Guerrier</option>
                 <option value="Alchimiste">Alchimiste</option>
                 <option value="Sorcier">Sorcier</option>
@@ -17,4 +21,4 @@
             <button>Login</button>
         </div>
     </form>
-</div>-->
+</div>

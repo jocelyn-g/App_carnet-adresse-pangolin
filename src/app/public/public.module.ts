@@ -7,6 +7,7 @@ import { PlayoutComponent } from './playout/playout.component';
 import { PheaderComponent } from './pheader/pheader.component';
 import { UserComponent } from './user/user.component';
 import { ParameterRoleComponent } from './parameter-role/parameter-role.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { ParameterRoleComponent } from './parameter-role/parameter-role.componen
   ],
   imports: [
     CommonModule,
-    PublicRoutingModule
+    PublicRoutingModule,
+    FormsModule
   ]
 })
 export class PublicModule { }

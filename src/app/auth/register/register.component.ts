@@ -16,9 +16,9 @@ export class RegisterComponent  implements OnInit {
   form: ICredential2 = {
     email: "",
     password: "",
+    contact: [],
     name: "",
     role: "",
-    contact: [],
   }
 
   constructor(private http: HttpClient){}
@@ -28,9 +28,9 @@ export class RegisterComponent  implements OnInit {
 
   onSubmit(){
     console.log(this.form)
-    this.http.post('http://localhost:3000/posts/', this.form, {withCredentials:true}).subscribe(
+    this.http.post('http://localhost:3000/posts/', this.form).subscribe(
       (newUsers: any) => {
-        newUsers = this.form
+        console.log(newUsers)
       },
     )
   }

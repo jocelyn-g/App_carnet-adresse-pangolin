@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ICredential2 } from 'src/app/_interfaces/credential2';
 
 
@@ -11,9 +12,19 @@ import { ICredential2 } from 'src/app/_interfaces/credential2';
 
 export class ParameterRoleComponent  implements OnInit {
 
-  self: any = {}
+  self: ICredential2 = {
+    email: "",
+    password: "",
+    name: "",
+    role: "",
+    contact: "",
+  }
+  id: any
 
-  constructor(private http: HttpClient){}
+  constructor(
+    private activated: ActivatedRoute,
+    private http: HttpClient
+    ){}
 
   ngOnInit(): void {
     this.http.get('http://localhost:3000/posts/').subscribe(
@@ -29,29 +40,22 @@ export class ParameterRoleComponent  implements OnInit {
           }
         }
         console.log(users[identify])
-        this.self = {
-          name: users[identify].name,
-          email: users[identify].email,
-          password: users[identify].password,
-          contact: users[identify].contact,
-        }
+        this.id = users[identify]._id
+        console.log(this.id)
+        this.self.name = users[identify].name,
+        this.self.email = users[identify].email,
+        this.self.password = users[identify].password,
+        this.self.contact = users[identify].contact
       },
     )
   }
 
-  form: ICredential2 = {
-    email: this.self.email,
-    password: this.self.password,
-    name: this.self.name,
-    role: "",
-    contact: this.self.contact,
-  }
 
   onSubmit(){
-    console.log(this.form)
-    this.http.post('http://localhost:3000/posts/', this.form, {withCredentials:true}).subscribe(
+    console.log(this.self)
+    this.http.put('http://localhost:3000/posts/'+this.id, this.self).subscribe(
       (newUsers: any) => {
-        newUsers = this.form
+        newUsers = this.self
       },
     )
   }
