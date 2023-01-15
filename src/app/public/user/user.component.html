@@ -9,10 +9,10 @@
             </thead>
             <tbody>
                 <tr *ngFor="let user of userList">
-                    <td>{{user.name}}</td>
-                    <td>{{user.role}}</td>
-                    <td>
-                        <button class="add">+</button>
+                    <td *ngIf="!this.self.contact.includes(user._id) && user._id !== this.id">{{user.name}}</td>
+                    <td *ngIf="!this.self.contact.includes(user._id) && user._id !== this.id">{{user.role}}</td>
+                    <td *ngIf="!this.self.contact.includes(user._id) && user._id !== this.id">
+                        <button (click)="btnAdd(user._id)" class="add">+</button>
                     </td>
                 </tr>
             </tbody>

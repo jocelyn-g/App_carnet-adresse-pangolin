@@ -1,1 +1,20 @@
-<p>contact works!</p>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Role</th>
+                <th>Ajouter</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userList">
+                <td *ngIf="this.self.contact.includes(user._id)">{{user.name}}</td>
+                <td *ngIf="this.self.contact.includes(user._id)">{{user.role}}</td>
+                <td *ngIf="this.self.contact.includes(user._id)">
+                    <button (click)="btnDelete(user._id)" class="delete">-</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
