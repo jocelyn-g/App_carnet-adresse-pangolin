@@ -59,25 +59,26 @@ export class AddUserComponent implements OnInit {
     )
   }
 
+  getId: any
+
   onSubmit(){
     console.log(this.form)
     this.http.post('http://localhost:3000/posts/', this.form).subscribe(
       (newUsers: any) => {
-        console.log(newUsers)
+        console.log(newUsers._id)
+        if(!this.self.contact.includes(newUsers._id)){
+          this.self.contact.push(newUsers._id)
+
+          this.http.put('http://localhost:3000/posts/'+this.id, this.self).subscribe(
+          (newUsers: any) => {
+            newUsers = this.self
+          },
+        )
+        }
       },
     )
 
   
-    if(!this.self.contact.includes(this.form.email)){
-      this.self.contact.push(this.form.email)
-      //console.log(this.self)
-
-      this.http.put('http://localhost:3000/posts/'+this.id, this.self).subscribe(
-      (newUsers: any) => {
-        newUsers = this.self
-      },
-    )
-    }
 
   }
 
