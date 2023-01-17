@@ -18,6 +18,13 @@ export class UserComponent implements OnInit{
     role: "",
     contact: [],
   }
+  form: ICredential2 = {
+    email: "",
+    password: "",
+    contact: [],
+    name: "",
+    role: "",
+  }
   id: any
 
   constructor(private http: HttpClient){}
@@ -65,6 +72,15 @@ export class UserComponent implements OnInit{
       //console.log("déja ajouter")
     }
     
+  }
+
+  onSubmit(){
+    console.log(this.form)
+    this.http.post('http://localhost:3000/posts/', this.form).subscribe(
+      (newUsers: any) => {
+        console.log(newUsers)
+      },
+    )
   }
 
 }

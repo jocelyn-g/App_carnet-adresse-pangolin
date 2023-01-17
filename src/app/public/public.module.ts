@@ -8,6 +8,7 @@ import { PheaderComponent } from './pheader/pheader.component';
 import { UserComponent } from './user/user.component';
 import { ParameterRoleComponent } from './parameter-role/parameter-role.component';
 import { FormsModule } from '@angular/forms';
+import { AddUserComponent } from './add-user/add-user.component';
 
 
 
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     PlayoutComponent,
     PheaderComponent,
     UserComponent,
-    ParameterRoleComponent
+    ParameterRoleComponent,
+    AddUserComponent
   ],
   imports: [
     CommonModule,
