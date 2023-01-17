@@ -11,9 +11,9 @@
             </thead>
             <tbody>
                 <tr *ngFor="let user of userList">
-                    <td *ngIf="!this.self.contact.includes(user._id) && !this.self.contact.includes(user.email) && user._id !== this.id">{{user.name}}</td>
-                    <td *ngIf="!this.self.contact.includes(user._id) && !this.self.contact.includes(user.email) && user._id !== this.id">{{user.role}}</td>
-                    <td *ngIf="!this.self.contact.includes(user._id) && !this.self.contact.includes(user.email) && user._id !== this.id">
+                    <td *ngIf="!this.self.contact.includes(user._id) && user._id !== this.id">{{user.name}}</td>
+                    <td *ngIf="!this.self.contact.includes(user._id) && user._id !== this.id">{{user.role}}</td>
+                    <td *ngIf="!this.self.contact.includes(user._id) && user._id !== this.id">
                         <button (click)="btnAdd(user._id)" class="add">+</button>
                     </td>
                 </tr>

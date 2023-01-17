@@ -9,9 +9,9 @@
         </thead>
         <tbody>
             <tr *ngFor="let user of userList">
-                <td *ngIf="this.self.contact.includes(user._id) || this.self.contact.includes(user.email)">{{user.name}}</td>
-                <td *ngIf="this.self.contact.includes(user._id) || this.self.contact.includes(user.email)">{{user.role}}</td>
-                <td *ngIf="this.self.contact.includes(user._id) || this.self.contact.includes(user.email)">
+                <td *ngIf="this.self.contact.includes(user._id)">{{user.name}}</td>
+                <td *ngIf="this.self.contact.includes(user._id)">{{user.role}}</td>
+                <td *ngIf="this.self.contact.includes(user._id)">
                     <button (click)="btnDelete(user._id, user.email)" class="delete">-</button>
                 </td>
             </tr>
