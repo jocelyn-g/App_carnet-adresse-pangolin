@@ -52,13 +52,13 @@ export class ContactComponent implements OnInit{
 
   getContact = 0
   increment = 0
-  btnDelete(getId:any){
+  btnDelete(getId:any, getemail:any){
     this.increment = 0
     console.log(getId)
       //this.self.contact.push(getId)
       console.log(this.self)
       for(let index of this.self.contact){
-        if(index !== getId){
+        if(index !== getId || index !== getemail){
           this.increment = this.increment + 1
         }else{
           this.getContact = this.increment
